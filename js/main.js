@@ -64,3 +64,34 @@
     
 })(jQuery);
 
+// Script untuk ambil data.json untuk agenda di index.html
+
+fetch('agenda.json')
+    .then(response => response.json())
+    .then(data => {
+      const serviceContainer = document.getElementById('agendaCard');
+
+      // Loop melalui setiap data dalam file JSON
+      data.forEach((item) => {
+        const serviceItem = document.createElement('div');
+        serviceItem.className = 'col-lg-4 col-md-6 wow fadeInUp';
+        serviceItem.setAttribute('data-wow-delay', '0.1s');
+
+        const serviceContent = `
+          <div class="service-item rounded h-100 p-5">
+            <div class="align-items-center mb-4">
+              <div>
+                <img class="img-fluid" src="${item.imgSrc}" alt="" />
+              </div>
+              <h4 class="mb-0">${item.title}</h4>
+            </div>
+            <p class="mb-4">${item.description}</p>
+            <a class="btn btn-light px-3" href="${item.link}">${item.linkText}</a>
+          </div>
+        `;
+
+        serviceItem.innerHTML = serviceContent;
+        serviceContainer.appendChild(serviceItem);
+      });
+    })
+    .catch(error => console.error(error));
