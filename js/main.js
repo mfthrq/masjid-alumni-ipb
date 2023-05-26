@@ -64,30 +64,23 @@
     
 })(jQuery);
 
-// Script untuk ambil data.json untuk agenda di index.html
 
-fetch('agenda.json')
+// SCRIPT UNTUK AMBIL DATA DARI JADWALSHOLAT.JSON
+
+// Mengambil data dari file JSON
+fetch('jadwalsholat.json')
     .then(response => response.json())
     .then(data => {
-      const serviceContainer = document.getElementById('agendaCard');
+      const serviceContainer = document.getElementById('jadwalsholat');
 
       // Loop melalui setiap data dalam file JSON
       data.forEach((item) => {
         const serviceItem = document.createElement('div');
-        serviceItem.className = 'col-lg-4 col-md-6 wow fadeInUp';
-        serviceItem.setAttribute('data-wow-delay', '0.1s');
+        serviceItem.className = 'col-lg-4 col-md-6 wow fadeInUp mt-3';
 
         const serviceContent = `
-          <div class="service-item rounded h-100 p-5">
-            <div class="align-items-center mb-4">
-              <div>
-                <img class="img-fluid" src="${item.imgSrc}" alt="" />
-              </div>
-              <h4 class="mb-0">${item.title}</h4>
-            </div>
-            <p class="mb-4">${item.description}</p>
-            <a class="btn btn-light px-3" href="${item.link}">${item.linkText}</a>
-          </div>
+            <h2 class="text-white">${item.waktu}</h2>
+            <h5 class="text-white">${item.pukul}</h5>
         `;
 
         serviceItem.innerHTML = serviceContent;
