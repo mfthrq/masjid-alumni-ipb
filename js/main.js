@@ -66,11 +66,6 @@
 
 
 // SCRIPT UNTUK AMBIL DATA DARI JADWALSHOLAT.JSON
-// SCRIPT UNTUK AMBIL DATA DARI JADWALSHOLAT.JSON
-// SCRIPT UNTUK AMBIL DATA DARI JADWALSHOLAT.JSON
-
-// Mengambil elemen dengan kelas "row"
-var rowElement = document.getElementsByClassName("row")[0];
 
 // Mengambil data dari file JSON
 fetch('jadwalsholat.json')
